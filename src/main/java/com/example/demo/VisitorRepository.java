@@ -5,7 +5,7 @@ import java.util.List;
 
 public class VisitorRepository {
 
-	List<Visitor> list;
+	private List<Visitor> list;
 	
 	public VisitorRepository() {
 		this.list = new ArrayList<>();

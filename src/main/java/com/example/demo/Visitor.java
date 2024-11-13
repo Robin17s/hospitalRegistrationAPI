@@ -4,17 +4,31 @@ import java.time.ZonedDateTime;
 
 public class Visitor {
 
+	private int id;
 	private String firstName;
 	private String lastName;
-	private String doctorId;
+	private int doctorId;
 	private String timeStamp;
 	private ZonedDateTime localDateTime;
 	
-	public Visitor(String firstName, String lastName, String doctorId) {
+	public Visitor(int id, String firstName, String lastName, int doctorId) {
+		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.doctorId = doctorId;
 		this.timeStamp = localDateTime.now().toString();
+	}
+	
+	public Visitor(int id, String firstName, String lastName) {
+		this(id, firstName, lastName, -1);
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -33,11 +47,11 @@ public class Visitor {
 		this.lastName = lastName;
 	}
 
-	public String getDoctor() {
+	public int getDoctor() {
 		return doctorId;
 	}
 
-	public void setDoctor(String doctorId) {
+	public void setDoctor(int doctorId) {
 		this.doctorId = doctorId;
 	}
 
@@ -47,6 +61,6 @@ public class Visitor {
 	
 	@Override
 	public String toString() {
-		return String.format("%s %s: visited %s%s on %s", firstName, lastName, doctorId.isBlank() ? "patient" : "doctor ", doctorId, timeStamp);
+		return String.format("%s %s: visited %s%d on %s", firstName, lastName, doctorId == -1 ? "patient" : "doctor ", doctorId, timeStamp);
 	}
 }
