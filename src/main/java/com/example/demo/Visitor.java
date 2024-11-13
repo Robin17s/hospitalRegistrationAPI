@@ -22,6 +22,10 @@ public class Visitor {
 	public Visitor(int id, String firstName, String lastName) {
 		this(id, firstName, lastName, -1);
 	}
+	
+	public Visitor() {
+		this.timeStamp = localDateTime.now().toString();
+	}
 
 	public int getId() {
 		return id;
@@ -31,11 +35,11 @@ public class Visitor {
 		this.id = id;
 	}
 
-	public String getName() {
+	public String getFirstName() {
 		return firstName;
 	}
 
-	public void setName(String firstName) {
+	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
 
@@ -47,18 +51,22 @@ public class Visitor {
 		this.lastName = lastName;
 	}
 
-	public int getDoctor() {
+	public int getDoctorId() {
 		return doctorId;
 	}
 
-	public void setDoctor(int doctorId) {
+	public void setDoctorId(int doctorId) {
 		this.doctorId = doctorId;
 	}
 
-	public String getDateTime() {
+	public String getTimeStamp() {
 		return timeStamp;
 	}
 	
+	public void setTimeStamp(String timeStamp) {
+		this.timeStamp = timeStamp;
+	}
+
 	@Override
 	public String toString() {
 		return String.format("%s %s: visited %s%d on %s", firstName, lastName, doctorId == -1 ? "patient" : "doctor ", doctorId, timeStamp);
