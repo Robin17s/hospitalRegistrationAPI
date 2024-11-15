@@ -2,6 +2,9 @@ package com.example.demo;
 
 import java.time.ZonedDateTime;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Visitor {
 
 	private int id;
